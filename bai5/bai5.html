@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #div_tong{
+        width: 100%;
+        height: 700px;
+        background: red;
+    }
+    #div_trai{
+        width: 20%;
+        height: 100%;
+        background: black;
+        float: left;
+    }
+    #vien{
+        width: 5%;
+        height: 100%;
+        background-image: url("../img/soc.jpg");
+        float: left;
+    }
+    #div_phai{
+        width: 75%;
+        height: 100%;
+        background: rgb(255, 255, 255);
+        float: left;
+        background-image: url("../img/sua1.gif");
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    #div_phai > .tren{
+        width: 80%;
+        height: 100%;
+        
+        float: left;
+    }
+    #div_phai > .phai{
+        width: 20%;
+        height: 100%;
+     
+        float: left;
+        position: relative;
+    }
+    #div_phai > .tren > .chu{
+        width: 100%;
+        height: 20%;
+     
+        float: left;  
+        text-align: center;  
+    }
+    #div_phai > .phai img{
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        
+        
+    }
+    #div_phai > .tren > .bang{
+        width: 100%;
+        height: 100%;
+        font-size: 20px;
+        position: relative;
+        
+    }
+   
+    .chu_trai{
+       text-align: right;
+       width: 90px;
+    }
+    .anh{
+        width: 155px;
+        height: 155px;
+    }
+</style>
+<body>
+    <div id="div_tong">
+        <div id="div_trai" style="position:relative;">
+            <img src="../img/sanho.gif" alt=""  style="position: absolute; width: 120%;height: 100%;">
+        </div>
+        <div id="vien"></div>
+        <div id="div_phai" >
+            <div class="tren">
+                <div class="chu">
+                    <h1>Tham Gia Cau Lac Bo</h1>
+                    <p>quy doc gia hay dien day du thong tin</p>
+                </div>
+                <div class="bang">
+                    <table style="background-color: rgb(165, 248, 168);" align="center">
+                        <tr>
+                            <td class="chu_trai">
+                                ho va ten:
+                            </td>
+                            <td>
+                                <input type="text" name="" id="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="chu_trai">
+                                dia chi:
+                            </td>
+                            <td>
+                                <input type="text" name="" id="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="chu_trai">
+                                email
+                            </td>
+                            <td>
+                                <input type="email" name="" id="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="chu_trai">
+                                ngay sinh:
+                            </td>
+                            <td>
+                                <input type="date" name="" id="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="chu_trai">
+                                de tai:
+                            </td>
+                            <td>
+                                <select name="" id="">
+                                    <option value="">tim hieu sua bien</option>
+                                    <option value="">tim hieu oc bien</option>
+                                    <option value="">tim hieu sao bien</option>
+                                </select>
+                                
+                            </td>
+                        </tr>
+                        <tr style="position: relative;">
+                            <td class="chu_trai" style="position:absolute; text-align:right">
+                                nhom:
+                            </td>
+                            <td>
+                                <input type="checkbox"> nghien cuu
+                                <br>
+                                <input type="checkbox"> hai ngu
+                                <br>
+                                <input type="checkbox"> vien duong
+                                <br>
+                                <input type="checkbox"> my thuat
+                            </td>
+                        </tr>
+                        <tr style="position: relative;">
+                            <td class="chu_trai" style="position:absolute; text-align:right">
+                                gui hinh:
+
+                            </td>
+                            <td>
+                                <input type="file" name="" id="">
+                            </td>
+                        </tr>
+                        <tr style="position: relative;">
+                            <td class="chu_trai" style="position:absolute; text-align:right">
+                                tai lieu:
+
+                            </td>
+                            <td>
+                                <input type="radio" name="" id="">sinh vat bien
+                                <br>
+                                <input type="radio" name="" id="">cac loai sua bien
+                                <br>
+                                <input type="radio" name="" id="">san ho
+                                <br>
+                                <input type="radio" name="" id="">khi hau
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <button>tham gia</button>
+                                <button type="reset">xoa thong tins</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="phai">
+                <div class="anh">
+                    <img src="../img/nhom1a.jpg" alt="">
+                </div>
+                <div class="anh">
+                    <img src="../img/nhom1b.jpg" alt="">
+                </div>
+                
+                
+                <div class="anh">
+                    <img src="../img/nhom1c.jpg" alt="">
+                </div>
+                
+                <div class="anh">
+                    <img src="../img/nhom1d.jpg" alt="">
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
