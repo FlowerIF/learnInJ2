@@ -1,0 +1,62 @@
+<form action="" onsubmit="return false">
+    <h1 style="background:green ;"> LOOP and Number</h1>
+    Nhap vao so:
+    <input type="number" name="" id="number">
+    <button type="button" id="enter" onclick="in_ra()" style="background:red ;">enter</button>
+
+    <div id="so_chan" style="background: gray;"></div>
+    <div id="so_le" style="background: rgb(141, 72, 72);"></div>
+   
+    <div id="dayso" style="background: rgb(16, 185, 75);"></div>
+    <div id="so_lan" style="background: rgb(115, 3, 67);"></div>
+</form>
+
+
+<script>
+    document.getElementById("number").addEventListener("keyup", function (event) {
+            if (event.code == "Enter") {
+                event.preventDefault();
+                document.getElementById("enter").click();
+                return false;
+            }
+            
+        })
+        let count = 1;
+    function in_ra(){
+        let so = parseInt(document.getElementById("number").value);
+        document.getElementById("dayso").innerHTML = ' ';
+        if(so % 2 == 0){
+            document.getElementById("so_chan").innerHTML= ('so chan');
+        }else if(so % 2 != 0){
+            document.getElementById("so_chan").innerHTML= ('so le');
+        }else{
+            document.getElementById("so_chan").innerHTML= ('so thap phan');
+        }
+        let check  = 0;
+        
+        for(let i = 2;i < Math.abs(so);i++){
+            if(so % i == 0){
+                check = 1;
+                break;
+            }
+        }
+        if(check === 1){
+            document.getElementById("so_le").innerHTML= ('so binh thuong ');
+        }else{
+            document.getElementById("so_le").innerHTML= ('so ng to');
+        }
+        
+        if(so > 0){
+            for(let i = 0;i<=so;i++){
+                document.getElementById("dayso").innerHTML += (i + ' ');
+            }
+        }else{
+            for(let i = so;i<=0;i++){
+                document.getElementById("dayso").innerHTML += (i + ' ');
+            }
+        }
+        document.getElementById("so_lan").innerHTML = ('ban da nhap ' + count + ' lan');
+        count++;
+    }
+    
+</script>
