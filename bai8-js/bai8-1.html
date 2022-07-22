@@ -1,0 +1,115 @@
+
+<form action="">
+    <h1>Mang</h1>
+    Nhap vao gia tri phan tu mang
+    <input type="number" name="" id="number">
+    <button type="button" id="myBtn" onclick="nhap()">Nhap</button>
+    <button type="button"  onclick="in_mang()">In ra mang</button>
+    <table border="1">
+        <tr>
+            <td>cac so chan trong mang:</td>
+            <td id="chan"></td>
+        </tr>
+        <tr>
+            <td>cac so le trong mang:</td>
+            <td id="le"></td>
+        </tr>
+        <tr>
+            <td>gia tri lon nhat mang:</td>
+            <td id="max"></td>
+        </tr>
+        <tr>
+            <td>gia tri nho nhat mang:</td>
+            <td id="min"></td>
+        </tr>
+        <tr>
+            <td>tong cac gia tri trong mang</td>
+            <td id="tong"></td>
+        </tr>
+        <tr>
+            <td>cac so ng to trong mang:</td>
+            <td id="ngto"></td>
+        </tr>
+        <tr>
+            <td>cac ma mau duoc tao ra:</td>
+            <td id="test"></td>
+        </tr>
+    </table>
+    
+    
+</form>
+<script>
+    let mang = [];
+    let m,c;
+    let ma_mau = '';
+    var input = document.getElementById("number");
+    input.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("myBtn").click();
+        }
+    });
+
+    function nhap(){
+        let so = parseInt(document.getElementById('number').value);
+        mang.push(so);
+        document.getElementById('number').value = '';
+        
+    }
+    function ng_to(m){
+        if(m < 2){
+            return false;
+        }
+        for(let i = 2;i<(m-1);i++){
+            if(m % i == 0 ){
+                return false;
+            }
+        }
+        return true;
+    }
+    function dem_so_chu_cai(m){
+        c =  parseInt(7 - m.toString().length);
+        ma_mau += '#'
+        for(let i = 0;i< c;i++){
+            ma_mau += '0';
+        }
+        ma_mau += m + ' ';
+        return ma_mau;
+    }
+    function in_mang(){
+        let chan = '';
+        let le = '';
+        let so_ng_to = '';
+        let sum = 0,check = 0;
+        let max = mang[0];
+        let min = mang[0];
+        for(let i = 0;i < mang.length;i++){
+            if(mang[i] % 2 == 0){
+                chan += mang[i] + ' ';
+            }
+            else{
+                le += mang[i] + ' ';
+            }
+            sum+=mang[i];
+            if(max < mang[i]){
+                max = mang[i];
+            }
+            if(min > mang[i]){
+                min = mang[i];
+            }
+            if(ng_to(mang[i])){
+                so_ng_to += mang[i] +' ';
+            }
+            dem_so_chu_cai(mang[i]);
+            
+        }
+        document.getElementById('chan').innerHTML = chan;
+        document.getElementById('le').innerHTML = le;
+        document.getElementById('tong').innerHTML = sum;
+        document.getElementById('max').innerHTML = max;
+        document.getElementById('min').innerHTML = min;
+        document.getElementById('ngto').innerHTML = so_ng_to;
+        document.getElementById('test').innerHTML = ma_mau;
+    }
+    
+</script>
