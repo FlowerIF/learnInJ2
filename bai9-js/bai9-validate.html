@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validate form</title>
+</head>
+
+
+
+<body>
+    
+    <form action="">
+        <table border="1" align="center" style="text-align:center ;">
+            <tr>
+                <td colspan="2"><h1>validate form</h1><tr>
+                
+            </tr>
+                
+            </tr>
+            <tr>
+                <td>ten</td>
+                <td><input type="text" name="" id="ten">
+                <div id="loi_ten"></div></td>
+            </tr>
+            <tr>
+                <td>dia chi</td>
+                <td><input type="text" name="" id="dia_chi">
+                <div id="loi_dia_chi"></div></td>
+            </tr>
+            <tr>
+                <td>email</td>
+                <td><input type="email" name="" id="email">
+                <div id="loi_email"></div></td>
+            </tr>
+            <tr>
+                <td>mat khau</td>
+                <td><input type="text" name="" id="pass">
+                <div id="loi_mat_khau"></div></td>
+            </tr>
+            <tr>
+                <td>gioi tinh</td>
+                <td>
+                    <input type="radio" name="gender" id="">nam
+                    <input type="radio" name="gender" id="">nu
+                
+                <div id="loi_gioi_tinh"></div></td>
+            </tr>
+            <tr>
+                <td>so thich</td>
+                <td>
+                    <input type="text" name="" id="">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button onclick="return kiem_tra()">submit</button>
+                    <button type="reset">reset</button></td>
+                
+            </tr>
+        </table>
+    </form>
+    <script>
+        function kiem_tra(){
+            let check = true;
+
+            //ten
+            let regex_name = /^[A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹ]+(?: [A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹ]*)+$/;
+            let ten = document.getElementById("ten").value;
+            if(ten.length === 0){
+                document.getElementById("loi_ten").innerHTML = "ten khong duoc de trong";
+                check =  true;
+            }else if(!regex_name.test(ten)){
+                document.getElementById("loi_ten").innerHTML = "ten khong duoc hop le";
+                check =  true;
+            }else{
+                document.getElementById("loi_ten").innerHTML = "";
+                check =  true;
+            }
+
+
+            //dia chi
+            let diachi = document.getElementById("dia_chi").value;
+            if(diachi.length === 0){
+                document.getElementById("loi_dia_chi").innerHTML = "dia chi khong duoc de trong";
+                check =  true;
+            }
+            else{
+                document.getElementById("loi_dia_chi").innerHTML = "";
+                check =  true;
+            }
+            
+
+
+            //gioi tinh
+            let mang_gioi_tinh = document.getElementsByName("gender");
+            let ktra = false;
+            for(let i = 0;i<mang_gioi_tinh.length;i++){
+                if(mang_gioi_tinh[i].checked){
+                    ktra = true;
+                }
+            }
+            if(ktra == false){
+                document.getElementById("loi_gioi_tinh").innerHTML = "gioi tinh khong duoc de trong";
+                check =  true;
+            }else{
+                document.getElementById("loi_gioi_tinh").innerHTML = "";
+                check =  true;
+            }
+
+
+            //pass
+            let pwd = document.getElementById('pass');
+            let strongRegex = new RegExp("^(?=.{14,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
+            let mediumRegex = new RegExp("^(?=.{10,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
+            let enoughRegex = new RegExp("(?=.{8,}).*", "g");
+
+            if (pwd.value.length == 0) {
+                document.getElementById("loi_mat_khau").innerHTML = "mat khau khong duoc de trong";
+                check =  true;
+            } else if (false == enoughRegex.test(pwd.value)) {
+                document.getElementById("loi_mat_khau").innerHTML  = 'More Characters';
+                check =  true;
+            } else if (strongRegex.test(pwd.value)) {
+                document.getElementById("loi_mat_khau").innerHTML  = 'Strong!';
+                check =  true;
+            } else if(mediumRegex.test(pwd.value)) {
+                document.getElementById("loi_mat_khau").innerHTML = 'Medium!';
+                check =  true;
+            } else {
+                document.getElementById("loi_mat_khau").innerHTML = '';
+                check =  true;
+            }
+
+            if(check){
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
