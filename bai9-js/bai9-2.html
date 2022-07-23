@@ -124,7 +124,7 @@ span.psw {
             check =  true;
         }else{
             document.getElementById("loi_ten").innerHTML = "";
-            check =  true;
+            
         }
 
 
@@ -136,7 +136,7 @@ span.psw {
         }
         else{
             document.getElementById("loi_dia_chi").innerHTML = "";
-            check =  true;
+            
         }
         
 
@@ -154,7 +154,7 @@ span.psw {
             check =  true;
         }else{
             document.getElementById("loi_gioi_tinh").innerHTML = "";
-            check =  true;
+            
         }
 
 
@@ -169,7 +169,7 @@ span.psw {
             check =  true;
         } else if (false == enoughRegex.test(pass.value)) {
             document.getElementById("loi_mat_khau").innerHTML  = "Thêm ký tự đi, quá ngắn rồi đó";
-            check =  true;
+            
         } else if (strongRegex.test(pass.value)) {
             document.getElementById("loi_mat_khau").innerHTML  = "Khỏe đấy!";
             check =  true;
@@ -177,8 +177,8 @@ span.psw {
             document.getElementById("loi_mat_khau").innerHTML = "mật khẩu này thường thôi!";
             check =  true;
         } else {
-            document.getElementById("loi_mat_khau").innerHTML = "Tạm ổn";
-            check =  true;
+            document.getElementById("loi_mat_khau").innerHTML = "";
+            
         }
         //email
         let em = document.getElementById("email").value;
@@ -187,7 +187,7 @@ span.psw {
             check = true;
         }else{
             document.getElementById("loi_email").innerHTML = "";
-            check = true;
+            
         }
         if(check){
             return false;
