@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lấy username và id</title>
+    <style>
+    
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+  box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+    color: rgb(118, 11, 111);
+}
+body {
+  display: grid;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  place-items: center;
+}
+
+.app {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  border: 1px dashed #aaa;
+  padding: 10px;
+}
+
+.input-size {
+  width: 90%;
+  outline: 0;
+  border: 1px solid greenyellow;
+  padding: 1rem;
+  
+}
+
+.btn-gen {
+  border: 1px solid gray;
+  padding: 1rem;
+  width: 90%;
+  height: 40px;
+  
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="app">
+        Nhập url:
+        <input class="input-size" id="links" type="text" placeholder="enter here" />
+        <button class="btn-gen" onclick=" return get_ID() ">Lấy ID(Username)</button>
+        <div>ví dụ</div>
+        <div>
+           <a href="">https://m.facebook.com/j2teamnnl/</a> 
+            <br>
+            <a href="">https://www.facebook.com/groups/j2team.community/</a> 
+            <br>
+            <a href="">https://www.facebook.com/profile.php?id=100048240755558</a> 
+            <br>
+            <a href="">https://www.facebook.com/profile.php?id=100048240755558</a> 
+        </div>
+        
+      </div>
+
+      <script>
+        function get_ID(){
+            let input = document.getElementById("links").value;
+            let regex_id = /(?:http|https)(?:\:\/\/)(?:m|www|x)(?:\.facebook.com)\/(?:groups\/|profile\.php\?id=)?((\w\d?\.?)+)/;
+            let result = input.match(regex_id);
+            if(result === null){
+                alert("Nhập link vào đi bạn êi!!");
+            }
+            else{
+                alert("Id(username) của bạn là: " + result[1]);
+                return false;
+            }
+        }
+      </script>
+</body>
+</html>
