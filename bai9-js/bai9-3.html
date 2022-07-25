@@ -64,12 +64,12 @@ body {
         <div>ví dụ</div>
         <div>
            <a href="">https://m.facebook.com/j2teamnnl/</a> 
-            <br>
-            <a href="">https://www.facebook.com/groups/j2team.community/</a> 
-            <br>
-            <a href="">https://www.facebook.com/profile.php?id=100048240755558</a> 
-            <br>
-            <a href="">https://www.facebook.com/profile.php?id=100048240755558</a> 
+            <br><br>
+            <a href="">facebook.com/groups/j2team.community/</a> 
+            <br><br>
+            <a href="">x.facebook.com/profile.php?id=100048240755558</a> 
+            <br><br>
+            <a href="">//www.facebook.com/profile.php?id=100048240755558</a> 
         </div>
         
       </div>
@@ -93,7 +93,7 @@ body {
         function get_ID(){
 
             let input = document.getElementById("links").value;
-            let regex_id = /(?:http|https)(?:\:\/\/)(?:m|www|x)(?:\.facebook.com)\/(?:groups\/|profile\.php\?id=)?((\w\d?\.?)+)/;
+            let regex_id = /(?:http|https)?(?:\:\/\/)?(?:m|www|x)?(?:\.?facebook.com)\/(?:groups\/|profile\.php\?id=)?((\w\d?\.?)+)/;
             let result = input.match(regex_id);
             if(result === null){
                 alert("Nhập đúng link vào đi bạn êi!!");
