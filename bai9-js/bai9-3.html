@@ -60,7 +60,7 @@ body {
     <div class="app">
         Nhập url:
         <input class="input-size" id="links" type="text" placeholder="enter here" />
-        <button class="btn-gen" onclick=" return get_ID() ">Lấy ID(Username)</button>
+        <button type="submit" class="btn-gen" id="click" onclick=" return get_ID() ">Lấy ID(Username)</button>
         <div>ví dụ</div>
         <div>
            <a href="">https://m.facebook.com/j2teamnnl/</a> 
@@ -75,16 +75,29 @@ body {
       </div>
 
       <script>
+        var input = document.getElementById("links");
+        addEventListener("keypress",function (event){
+            if(event.key === "Enter"){
+                event.preventDefault();
+                document.getElementById("click").click();
+            }
+        });
+        
+        
         function get_ID(){
+
             let input = document.getElementById("links").value;
             let regex_id = /(?:http|https)(?:\:\/\/)(?:m|www|x)(?:\.facebook.com)\/(?:groups\/|profile\.php\?id=)?((\w\d?\.?)+)/;
             let result = input.match(regex_id);
             if(result === null){
                 alert("Nhập link vào đi bạn êi!!");
+                
+                return false;
             }
             else{
                 alert("Id(username) của bạn là: " + result[1]);
-                return false;
+                
+                return true;
             }
         }
       </script>
